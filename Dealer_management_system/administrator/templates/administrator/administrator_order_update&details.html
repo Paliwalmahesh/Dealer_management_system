@@ -16,29 +16,28 @@
         <th scope="col">Description</th>
         <th scope="col">Quantity</th>
         <th scope="col">Cost</th>
-        <th scope="col">Grand total</th>
-        <th scope="col">Update</th>
-        <th scope="col">Delete</th>
+        <th scope="col">Total total</th>
+    
     
       </tr>
     </thead>
     <tbody>
-        {% for i in Item_added %}
+        {% for i in Product_s %}
      
       <tr>
 
-        <td>{{i.description}}</td>
-        <td>{{i.quantity}}</td>
-        <td>{{i.Cost}}</td>
-        <td>{{i.grand_total}}</td>
-        <td> <a  class="btn btn-sm btn-info" href="{% url 'update_Items' i.id %}"> Update </a> </td>
-        <td> <a class="btn btn-danger"href= "{% url 'delete_Items' i.id %}">Delete</a></td>
+        <td>{{i.Product_in_def.Product_description}}</td>
+        <td>{{i.Quantity}}</td>
+        <td>{{i.Product_in_def.Cost}}</td>
+        <td>{{i.Total_cost}}</td>
+       
 
       </tr>
       {% endfor %}
     </tbody>
   </table>
-
+  <div>
+    {{order_d.cost}}</div>
 
 {% endblock content %}
 

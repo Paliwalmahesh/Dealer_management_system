@@ -23,7 +23,7 @@
         <td>{{i.Order_date_Time}}</td>
         <td>{{i.Order_Status}}</td>
         <td>{{i.cost}}</td>
-        <td> <a  class="btn btn-sm btn-info" href="#"> Update </a> </td>
+        <td> <a  class="btn btn-sm btn-info" href="{% url 'administrator_Get_details' i.order_id %}"> Update </a> </td>
         <td> <a class="btn btn-sm  btn-danger" href= "#"> details </a> </td>
       
       </tr>

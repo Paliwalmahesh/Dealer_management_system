@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth,Group
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login,logout
+from .forms import OrderForm,Product_inForm
 
 def Dealer_Signin(request):
 	if request.method=='POST':

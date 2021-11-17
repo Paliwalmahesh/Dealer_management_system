@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate,login,logout
 from Dealer.models import Order,Product_in
 from django.db.models import Q
 from .models import Product
+from Dealer.forms import OrderForm,Product_inForm
 
 # Create your views here.
 def home(request):
@@ -123,5 +124,16 @@ def administrator_Pending_order_view(request):
 
 def administrator_Get_details(request,pk):
 	order_d=Order.objects.get(order_id=pk)
-	Product_s=Product_in.objects.get(order_in=order_d)
+	Product_s=Product_in.objects.filter(order_in=order_d)
+	form = OrderForm(instance=order_d)
+	if request.method == 'POST':
+		form = OrderForm(request.POST,instance=order_d)
+		if form.is_valid():
+			form.save()
+			return redirect('administrator_home')
+
+	context = {'form':form,
+	'Product_s':Product_s,
+	'order_d':order_d,}
+	return render(request, 'administrator/administrator_order_update&details.html', context)
 	
