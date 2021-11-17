@@ -1,0 +1,44 @@
+{% extends 'administrator\base.html' %}
+{% load static %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    
+    <input type="submit" name="Submit">
+</form>
+<table class="table">
+    <thead>
+      <tr>
+        
+
+        <th scope="col">Description</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Grand total</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+    
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in Item_added %}
+     
+      <tr>
+
+        <td>{{i.description}}</td>
+        <td>{{i.quantity}}</td>
+        <td>{{i.Cost}}</td>
+        <td>{{i.grand_total}}</td>
+        <td> <a  class="btn btn-sm btn-info" href="{% url 'update_Items' i.id %}"> Update </a> </td>
+        <td> <a class="btn btn-danger"href= "{% url 'delete_Items' i.id %}">Delete</a></td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock content %}
+

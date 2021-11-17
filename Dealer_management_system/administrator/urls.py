@@ -5,5 +5,10 @@ urlpatterns = [
      
      path('administrator_Signin',views.administrator_Signin, name='administrator_Signin'),
      path('administrator_Signup',views.administrator_Signup, name='administrator_Signup'),
+     path('administrator_home',views.administrator_home, name='administrator_home'),
+     path('administrator_Pending_order_view',views.administrator_Pending_order_view, name='administrator_Pending_order_view'),
+     path('administrator_Send_back_order_view',views.administrator_Send_back_order_view, name='administrator_Send_back_order_view'),
+     path('administrator_delivered_order_view',views.administrator_delivered_order_view, name='administrator_delivered_order_view'),
+     path('administrator_Approved_order_view',views.administrator_Approved_order_view, name='administrator_Approved_order_view'),
     
 ]
