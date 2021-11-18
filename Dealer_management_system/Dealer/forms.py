@@ -11,4 +11,9 @@ class OrderForm(ModelForm):
 class Product_inForm(ModelForm):
 	class Meta:
 		model = Product_in
-		fields = ['Product_in_def','order_in','Quantity']
+		fields = ['Product_in_def','Quantity']
+
+class Product_in_Form(ModelForm):
+	class Meta:
+		model = Product_in
+		fields = ['Quantity']

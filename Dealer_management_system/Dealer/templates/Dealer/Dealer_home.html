@@ -1,0 +1,55 @@
+{% extends 'administrator\base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="card">
+    <div class="card-header">
+        Pending Ordars
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">See Pending Ordars Here</h5>
+      
+      <a href="#"><button type="button" class="btn btn-primary position-relative">
+        Inbox
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{Pending_order}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button></a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+        Send back Ordars
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">See Send back Orders</h5>
+      <a href="#">
+      <button type="button" class="btn btn-primary position-relative">
+        Inbox
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{Send_back_order}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button></a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+        Send back Ordars
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">See Send back Orders</h5>
+      <a href="{% url 'Dealer_order'%}">
+      <button type="button" class="btn btn-primary position-relative">
+        add order
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          0
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button></a>
+    </div>
+  </div>
+{% endblock content %}

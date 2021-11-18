@@ -1,0 +1,66 @@
+{% extends 'administrator\base.html' %}
+{% load static %}
+{% block content %}
+<table class="table">
+<tbody>
+  <thead>
+    <tr>
+      <th scope="col">order_id</th>
+      <th scope="col">Order_date_Time</th>
+      <th scope="col">Order_Status</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>{{order.order_id}}</td>
+    <td>{{order.Order_date_Time}}</td>
+    <td>{{order.Order_Status}}</td>
+    <td> <a class="btn btn-sm  btn-danger" href= "#"> Delete </a> </td>
+  
+  </tr>
+</tbody>
+</table>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form}}
+                
+                <input type="submit" name="Submit">
+            </form>
+
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Product_description</th>
+        <th scope="col">Product Cost</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total cost</th>
+        <th scope="col">Update</th>
+        <th scope="col">details</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+        {% for i in product_in_show %}
+        
+      <tr>
+        <td>{{i.Product_in_def.Product_description}}</td>
+        <td>{{i.Product_in_def.Cost}}</td>
+        <td>{{i.Quantity}}</td>
+        <td>{{i.Total_cost}}</td>
+        <td> <a  class="btn btn-sm btn-info" href="{% url 'Dealer_update_product' i.Product_in_id%}"> Update </a> </td>
+        <td> <a class="btn btn-sm  btn-danger" href= "{% url 'Dealer_delete_product' i.Product_in_id%}"> Delete </a> </td>
+      
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="mx-auto"><p>Grand total </p><strong class="text-danger" > {{order.cost}}</strong></div>
+    
+{% endblock content %}
