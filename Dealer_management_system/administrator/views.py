@@ -5,12 +5,19 @@ from django.contrib.auth import authenticate,login,logout
 from Dealer.models import Order,Product_in
 from django.db.models import Q
 from .models import Product
+from .forms import ProductForm
 from Dealer.forms import OrderForm,Product_inForm
 
 # Create your views here.
 def home(request):
 	return render(request,'administrator/home.html')
 
+def administrator_products_view(request):
+	product_show=Product.objects.all()
+	context={
+		'product_show':product_show,
+	}
+	return render(request,'administrator/administrator_products_view.html',context)
 	
 def administrator_Signin(request):
 	if request.method=='POST':
@@ -62,6 +69,23 @@ def administrator_home(request):
 		'delivered_order':delivered_order,
 		}
 	return render(request,'administrator/administrator_home.html',context)
+
+def adminstrator_add_Product(request):
+	form=ProductForm()
+	context={
+				'form':form,
+			}
+	if request.method=='POST':
+		form = ProductForm(request.POST)
+		if form.is_valid():
+			form.save()
+			context={
+				'form':form,
+			}
+			return redirect('adminstrator_add_Product')
+	return render(request, 'administrator/administrator_product_add.html',context)
+
+
 
 def administrator_Send_back_order_view(request):
 	order=Order.objects.filter(Order_Status='Send_back')

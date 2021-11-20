@@ -1,0 +1,37 @@
+{% extends 'administrator\base.html' %}
+{% load static %}
+{% block content %}
+<p>Are you sure you want to delete </p>
+<table class="table">
+    <tbody>
+      <thead>
+        <tr>
+          <th scope="col">order id</th>
+          <th scope="col">Order date Time</th>
+          <th scope="col">Order Status</th>
+          <th scope="col">order cost</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>{{Order_delete.order_id}}</td>
+        <td>{{Order_delete.Order_date_Time}}</td>
+        <td>{{Order_delete.Order_Status}}</td>
+        <td>{{Order_delete.cost}}</td>
+      
+      </tr>
+    </tbody>
+    </table>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <form action="{% url 'Dealer_delete_order' Order_delete.order_id %}" method="POST">
+                
+                {% csrf_token %}
+                <a class="btn btn-warning" href="{% url 'Dealer_add_product' Order_delete.order_id %}">Cancel</a>
+
+                <input class="btn btn-danger" type="submit" name="Confirm">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

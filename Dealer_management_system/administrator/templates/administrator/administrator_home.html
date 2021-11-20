@@ -1,9 +1,6 @@
 {% extends 'administrator\base.html' %}
 {% load static %}
 {% block content %}
-
-
-
 <div class="card">
     <div class="card-header">
         Pending Ordars
@@ -66,6 +63,18 @@
           {{delivered_order}}
           <span class="visually-hidden">unread messages</span>
         </span>
+      </button></a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+        delivered Orders
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">See delivered Orders</h5>
+      <a href="{% url 'adminstrator_add_Product' %}"> 
+      <button type="button" class="btn btn-primary position-relative">
+        Inbox
       </button></a>
     </div>
   </div>

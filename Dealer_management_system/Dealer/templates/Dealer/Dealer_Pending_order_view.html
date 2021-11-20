@@ -8,7 +8,7 @@
         <th scope="col">Order_date</th>
         <th scope="col">Order_Status</th>
         <th scope="col">Grand total</th>
-        <th scope="col">Details</th>
+        <th scope="col">Details & Update</th>
         
       </tr>
     </thead>
@@ -21,8 +21,8 @@
         <td>{{i.Order_date_Time}}</td>
         <td>{{i.Order_Status}}</td>
         <td>{{i.cost}}</td>
-        <td> <a  class="btn btn-sm btn-info" href="{% url 'Dealer_order_details_view'  i.order_id %}"> Details </a> </td>
-      
+        <td> <a  class="btn btn-sm btn-info" href="{% url 'Dealer_add_product' i.order_id %}"> Details & Update </a> </td>
+     
       
       </tr>
       {% endfor %}
