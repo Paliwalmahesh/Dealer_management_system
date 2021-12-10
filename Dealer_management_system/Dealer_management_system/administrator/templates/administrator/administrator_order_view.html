@@ -1,0 +1,42 @@
+{% extends 'administrator\base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-3" style="border: black solid 2px; border-radius: 3px;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Order_id</th>
+        <th scope="col">Order_date</th>
+        <th scope="col">Order_Status</th>
+        <th scope="col">Grand total</th>
+        <th scope="col">Update</th>
+        <th scope="col">details</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+        {% for i in order %}
+     
+      <tr>
+        <td>{{i.user_order}}</td>
+        <td>{{i.order_id}}</td>
+        <td>{{i.Order_date_Time}}</td>
+        <td>{{i.Order_Status}}</td>
+        <td>{{i.cost}}</td>
+        <td> <a  class="btn btn-sm btn-info" href="{% url 'administrator_Get_details' i.order_id %}"> Update </a> </td>
+        <td> <a class="btn btn-sm  btn-danger" href= "#"> details </a> </td>
+      
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="mx-auto"><strong class="text-danger" >{{warning}}</strong></div>
+    
+
+</div>
+
+
+{% endblock content %}
+
