@@ -1,0 +1,22 @@
+{% extends 'administrator\base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-3" style="border: black solid 2px; border-radius: 3px;">
+    <h2 style="text-align: center; font-weight: bolder;">Add your Products here</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <div class="container my-2" style="text-align: center;" >
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+        
+    </form>
+
+</div>
+
+
+
+
+{% endblock content %}
+

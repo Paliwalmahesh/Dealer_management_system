@@ -1,0 +1,49 @@
+{% extends 'administrator\base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container" style="border: black solid 2px;">
+  <form method="POST">
+    {% csrf_token %}
+    {{form}}
+    
+    <input type="submit" name="Submit">
+</form>
+<table class="table">
+    <thead>
+      <tr>
+        
+
+        <th scope="col">Description</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Total total</th>
+    
+    
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in Product_s %}
+     
+      <tr>
+
+        <td>{{i.Product_in_def.Product_description}}</td>
+        <td>{{i.Quantity}}</td>
+        <td>{{i.Product_in_def.Cost}}</td>
+        <td>{{i.Total_cost}}</td>
+       
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div>
+    {{order_d.cost}}</div>
+
+</div>
+
+
+
+{% endblock content %}
+

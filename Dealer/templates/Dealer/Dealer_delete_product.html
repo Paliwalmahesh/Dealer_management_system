@@ -1,0 +1,21 @@
+{% extends 'administrator\base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+
+            <p>Are you sure you want to delete "{{product_in_delete}}"?</p>
+
+            <form action="{% url 'Dealer_delete_product' product_in_delete.Product_in_id %}" method="POST">
+                
+                {% csrf_token %}
+                <a class="btn btn-warning" href="{% url 'Dealer_add_product' product_in_delete.order_in.order_id %}">Cancel</a>
+
+                <input class="btn btn-danger" type="submit" name="Confirm">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
